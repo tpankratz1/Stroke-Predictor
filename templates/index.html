@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Stroke Predictor</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+  <div class="testbox">
+    <div class="container">
+      <nav class="stroke">
+        <ul>
+          <li><a href="/">Stroke Predictor</a></li>
+          <li><a href="#">Stats Analysis & Background Information</a></li>
+          <li><a href="#">The Team</a></li>
+          <li><a href="#">Credits and Citations</a></li>
+        </ul>
+      </nav>
+      <div class="banner">
+        <h1>Stroke Predictor</h1>
+      </div>
+      <h2 class="arrow">Enter any combination of health and social factor values below to predict effect on Stroke Mortality</h2>
+      <div class="wrapper">
+        <div class="column">
+          <form action="{{ url_for('predict')}}" method="post">
+            <div class="item">
+              <label for="Percent_Smokers"><strong>Percent Smokers:</strong><span>*</span></label><br />
+              <input id="Percent_Smokers" type="text" name="Percent_Smokers" placeholder="0-100" required /><label class="input_label">(U.S counties range: 7-43%): <a href="#percentsmokers" rel="stylesheet">Learn more</a></label>
+            </div>
+            <div class="item">
+              <label for="Average_Daily_Air_Polution_Particle_Matter"><strong>Average Daily Air Pollution Particle Matter:</strong><span>*</span></label><br />
+              <input id="Average_Daily_Air_Polution_Particle_Matter" type="text" name="Average_Daily_Air_Polution_Particle_Matter" placeholder="0-20" required /><label class="input_label">(U.S counties range: 4.2-15.4): <a href="#airpollution" rel="stylesheet">Learn more</a></label>
+            </div>
+            <div class="item">
+              <label for="Food_Environment_Index"><strong>Food Environment Index:</strong><span>*</span></label><br />
+              <input id="Food_Environment_Index" type="text" name="Food_Environment_Index" placeholder="0-10" required /><label class="input_label">(U.S counties range: 0-10): <a href="#foodenvironmentindex" rel="stylesheet">Learn more</a></label>
+              </div>
+            <div class="item">
+              <label for="Percent_Unemployed"><strong>Percent Unemployed:</strong><span>*</span></label><br />
+              <input id="Percent_Unemployed" type="text" name="Percent_Unemployed" placeholder="0-100" required /><label class="input_label">(U.S counties range: 1.7-23.5%): <a href="#percentunemployed" rel="stylesheet">Learn more</a></label>
+            </div>
+            <div class="item">
+              <label for="Income_Inequality_Ratio"><strong>Income Inequality Ratio:</strong><span>*</span></label><br />
+              <input id="Income_Inequality_Ratio" type="text" name="Income_Inequality_Ratio" placeholder="0-10" required /><label class="input_label">(U.S counties range: 2.7-8.9): <a href="#incomeinequalityratio" rel="stylesheet">Learn more</a></label>
+            </div>
+            <p>Required<span>*</span></p>
+            <div class="btn-block">
+              <button type="submit" href="/">Predict effect on stroke mortality</button>
+            </div>
+          </form>
+        </div>
+        <div class="column">
+          <div class="prediction_output">
+            <p class="output_text">Stroke Mortality per 100,000 people:</p>
+            <p class="output_value">{{ prediction_text }}</p>
+            {% for key, value in feature_dict.items() %}
+              <ul>
+                  <li class="key"> {{ key }}: </li>
+                  <li class="value"> {{ value }} </li>
+              </ul>
+              {% endfor %}
+            <!-- <p class="reference"><a href="#percentsmokers">Feel free to reference factor data for all U.S. counties further down this page.</a></p> -->
+          </div>
+        </div>
+      </div>
+      <h2 class="arrow" id="strokemortality">Stroke Mortality rates by U.S. counties: <a href="https://catalog.data.gov/dataset/stroke-mortality-data-among-us-adults-35-by-state-territory-and-county-2017-2019-d738a" style="font-size: 14px; font-weight: 400;">Get details from Centers for Disease Control and Prevention (CDC)</a></h2>
+      <div class="wrapper">
+        <iframe src="https://public.tableau.com/authoring/StrokeMortality_16532640128710/StrokeMortality?:embed=y&:display_count=yes&:showTabs=y&:toolbar=no?&:showVizHome=no" width="96%" height="800"></iframe>
+      </div>
+      <h2 class="arrow">Factors that could correlate with Stroke Mortality rates</h2>
+      <div class="wrapper">
+        <div class="column">
+          <p class="features" id="percentsmokers">Percent Smokers: <a href="https://www.countyhealthrankings.org/explore-health-rankings/measures-data-sources/county-health-rankings-model/health-factors/health-behaviors/tobacco-use" style="font-size: 14px; font-weight: 400;">Get details from County Health Rankings & Roadmaps</a></p>
+          <iframe src="https://public.tableau.com/authoring/PercentSmokers/PercentSmokers" width="96%" height="400"></iframe>
+        </div>
+        <div class="column">
+          <p class="features" id="airpollution">Average Daily Air Polution Particle Matter: <a href="https://www.countyhealthrankings.org/explore-health-rankings/measures-data-sources/county-health-rankings-model/health-factors/physical-environment/air-water-quality/air-pollution-particulate-matter" style="font-size: 14px; font-weight: 400;">Get details from County Health Rankings & Roadmaps</a></p>
+          <iframe src="https://public.tableau.com/authoring/AverageDailyAirPollutionParticleMatter/AverageDailyAirPolutionParticleMatter" width="96%" height="400"></iframe>
+        </div>
+        <div class="column">
+          <p class="features" id="foodenvironmentindex">Food Environment Index: <a href="https://www.countyhealthrankings.org/explore-health-rankings/measures-data-sources/county-health-rankings-model/health-factors/health-behaviors/diet-exercise/food-environment-index" style="font-size: 14px; font-weight: 400;">Get details from County Health Rankings & Roadmaps</a></p>
+          <iframe src="https://public.tableau.com/authoring/FoodEnvironmentIndex/FoodEnvironmentIndex" width="96%" height="400"></iframe>
+        </div>
+        <div class="column">
+          <p class="features" id="percentunemployed">Percent Unemployed: <a href="https://www.countyhealthrankings.org/explore-health-rankings/measures-data-sources/county-health-rankings-model/health-factors/social-and-economic-factors/employment/unemployment" style="font-size: 14px; font-weight: 400;">Get details from County Health Rankings & Roadmaps</a></p> 
+          <iframe src="https://public.tableau.com/authoring/PercentUnemployed/PercentUnemployed" width="96%" height="400"></iframe>
+        </div>
+        <div class="column">
+          <p class="features" id="incomeinequalityratio">Income Inequality Ratio: <a href="https://www.countyhealthrankings.org/explore-health-rankings/measures-data-sources/county-health-rankings-model/health-factors/social-and-economic-factors/income/income-inequality" style="font-size: 14px; font-weight: 400;">Get details from County Health Rankings & Roadmaps</a></p>
+          <iframe src="https://public.tableau.com/authoring/IncomeInequalityRatio/IncomeInequalityRatio" width="96%" height="400"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,299 @@
+html, body {
+min-height: 100%;
+font-weight: bold;
+}
+body, div, form, input, select, textarea, label, p { 
+padding: 0;
+margin: 0;
+outline: none;
+font-family: Roboto, Arial, sans-serif;
+font-size: 14px;
+color: #666;
+line-height: 22px;
+}
+p.description {
+margin-top: 20px;
+}
+p.features {
+font-size: 20px;
+margin: 35px 0 10px 0;
+}
+h1 {
+position: absolute;
+margin: 0;
+font-size: 56px;
+color: #3a3a3a;
+z-index: 2;
+line-height: 83px;
+}
+h2 {
+background-image: url("arrow.png");
+height: 30px; /* You must set a specified height */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: 30px;
+background-position: left 0 top 0;
+padding: 4px 0 0 40px;
+}
+textarea {
+width: calc(100% - 12px);
+padding: 5px;
+}
+.testbox {
+display: flex;
+justify-content: center;
+align-items: center;
+height: inherit;
+padding: 20px;
+}
+.container {
+width: 100%;
+padding: 20px;
+border-radius: 6px;
+background: #fff;
+box-shadow: 0 0 8px  #808080;
+}
+form {
+width: 100%;
+padding-left: 20px;
+}
+
+/* Navigation start, By Dominik Biedebach @domobch, https://codepen.io/d2k/pen/jEmWXq/ */
+
+nav {
+width: 100%;
+margin: 0 auto;
+background: #fff;
+padding: 0;
+/* box-shadow: 0px 5px 0px #dedede; */
+}
+nav ul {
+list-style: none;
+text-align: left;
+}
+nav ul li {
+display: inline-block;
+}
+nav ul li a {
+display: block;
+padding: 5px;
+text-decoration: none;
+color: #aaa;
+font-weight: 800;
+text-transform: uppercase;
+margin: 0 10px 0 0;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+transition: all .5s;
+}
+nav ul li a:hover {
+color: #555;
+}
+/* stroke */
+nav.stroke ul li a,
+nav.fill ul li a {
+position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+width: 0%;
+content: '.';
+color: transparent;
+background: #333;
+height: 1px;
+}
+nav.stroke ul li a:hover:after {
+width: 100%;
+}
+nav.fill ul li a {
+transition: all 2s;
+}
+nav.fill ul li a:after {
+text-align: left;
+content: '.';
+margin: 0;
+opacity: 0;
+}
+nav.fill ul li a:hover {
+color: #023f1c;
+z-index: 1;
+}
+nav.fill ul li a:hover:after {
+z-index: -10;
+animation: fill 1s forwards;
+-webkit-animation: fill 1s forwards;
+-moz-animation: fill 1s forwards;
+opacity: 1;
+}
+
+/* Navigation end, By Dominik Biedebach @domobch, https://codepen.io/d2k/pen/jEmWXq/ */
+
+.banner {
+position: relative;
+height: 200px;
+background-color: #ccc;
+background-image: url("banner.png");  
+display: flex;
+justify-content: left;
+align-items: center;
+text-align: left;
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: 500px;
+background-position: right 50px top 0;
+padding: 4px 0 0 60px;
+}
+.banner::after {
+content: "";
+/* background-color: rgba(0, 0, 0, 0.2);  */
+position: absolute;
+width: 100%;
+height: 100%;
+}
+input, select, textarea {
+margin-bottom: 10px;
+border: 3px solid #ccc;
+border-radius: 6px;
+}
+.item label {
+padding: 7px 0;
+font-size: 16px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999;
+  font-weight: 400;
+  opacity: 1; /* Firefox */
+}
+.item input {
+width: 100px;
+padding: 7px;
+margin-top: 5px;
+font-size: 20px;
+font-weight: bold;
+color:#760000;
+text-align: center;
+}
+.input_label {
+font-weight: 400;
+margin-left: 12px;
+}
+textarea {
+width: calc(100% - 12px);
+padding: 5px;
+}
+.item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+color:  #9b1414;
+}
+.item input:hover, .item select:hover, .item textarea:hover {
+border: 3px solid transparent;
+box-shadow: 0 0 3px 0  #9b1414;
+color: #9b1414;
+}
+.item {
+position: relative;
+margin: 10px 0;
+padding: 2px 0;
+width: 96%;
+border-bottom: 1px solid #ccc;
+}
+span {
+color: #9b1414;
+}
+.wrapper {
+display:flex;
+justify-content:space-between;
+flex-direction:row;
+flex-wrap:wrap;
+width:100%;
+margin-bottom: 50px;
+padding-bottom: 50px;
+border-bottom: 5px solid #ccc;
+}
+.column {
+display:flex;
+justify-content:space-between;
+flex-direction:row;
+flex-wrap:wrap;
+float: left;
+width: 49.9%;
+}
+.item i {
+right: 1%;
+top: 30px;
+z-index: 1;
+}
+.flax {
+display:flex;
+justify-content:space-around;
+}
+.btn-block {
+margin-top: 10px;
+text-align: left;
+}
+button {
+width: 400px;
+padding: 20px;
+border: none;
+border-radius: 30px; 
+background:  #760000;
+font-size: 18px;
+font-weight: bold;
+color: #fff;
+cursor: pointer;
+}
+button:hover {
+background:  #470101;
+}
+.prediction_output {
+background: #3a3a3a;
+padding: 30px;
+margin: 20px 0 0 0;
+outline: none;
+width: 96%;
+height: 494px;
+}
+.output_text, .output_value {
+font-family: Roboto, Arial, sans-serif;
+font-weight: bold;
+color: #fff;
+line-height: 22px;
+}
+.output_text {
+font-size: 20px;
+margin-bottom: 22px;
+}
+.output_value {
+font-size: 44px;
+margin-bottom: 26px;
+}
+.prediction_output ul {
+font-family: Roboto, Arial, sans-serif;
+font-weight: 400;
+color: #fff;
+line-height: 24px;
+font-size: 14px;
+list-style-type: none;
+margin: 8px 0 0 0;
+margin-left: -36px;
+}
+.prediction_output ul li.key {
+padding-top: 10px;
+margin: 0 0 8px 0;
+border-top: 1px solid #fff;
+}
+.prediction_output ul li.value {
+font-weight: bold;
+font-size: 20px;
+padding-bottom: 10px;
+}
+.reference {
+padding: 0;
+margin: 120px 0 0 -30px;
+vertical-align: top;
+display: block;
+}
