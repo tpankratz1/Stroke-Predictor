@@ -1,2 +1,0 @@
-# Stroke-Predictor
-Stroke Predictor
