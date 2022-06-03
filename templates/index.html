@@ -14,10 +14,10 @@
     <div class="container">
       <nav class="stroke">
         <ul>
-          <li><a href="/">Stroke Mortality Predictor</a></li>
-          <li><a href="#">Stats Analysis & Background Information</a></li>
+          <li><a href="/">Stroke Mortality Predictor Home</a></li>
+          <!-- <li><a href="#">Stats Analysis & Background Information</a></li>
           <li><a href="#">The Team</a></li>
-          <li><a href="#">Credits and Citations</a></li>
+          <li><a href="#">Credits and Citations</a></li> -->
         </ul>
       </nav>
       <div class="banner">
@@ -64,6 +64,14 @@
               </ul>
             {% endfor %}
           </div>
+        </div>
+      </div>
+      <h2 class="arrow">Importances for Machine Learning Model:</h2>
+      <div class="wrapper">
+        <div class="column">
+          <p>Time was spent looking at importances of the 13 health- and social-related features.  Once we determined that we would use the Random Forest Regressor, we took determined which features appeared to be the most important in predicting stroke mortality. It became clear quickly that with the exception of Percent Smokers, none of the other features stood out dramatically. This correlates to the unique features we used and ultimately the low impact for predicting stroke mortality. 
+          </p>
+          <img src="static/Importances_All_Features.png" alt="Importances of all features">
         </div>
       </div>
       <h2 class="arrow" id="strokemortality">Stroke Mortality rates by U.S. counties: <a href="https://catalog.data.gov/dataset/stroke-mortality-data-among-us-adults-35-by-state-territory-and-county-2017-2019-d738a" style="font-size: 14px; font-weight: 400;">Get details from Centers for Disease Control and Prevention (CDC)</a></h2>
