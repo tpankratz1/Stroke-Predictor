@@ -1,5 +1,5 @@
-import numpy as np
 import pandas as pd
+import numpy as np
 from flask import Flask, request, render_template
 from sklearn import preprocessing
 import pickle
@@ -29,3 +29,5 @@ def predict():
 if __name__ == "__main__":
     app.run(debug=True)
     # app.run(host='localhost', port=5000)
+
+# Reference/Source: https://towardsdatascience.com/machine-learning-model-deployment-on-heroku-using-flask-467acb4a34da
